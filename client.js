@@ -337,6 +337,16 @@ window.__ModuleLoader__.load({
       '  html.dsh-ux-collapse [class*="_frame"] [class*="_handle"] {\n' +
       '    display: none !important;\n' +
       '  }\n' +
+      '  /* The sidebar leaves the grid flow when it becomes an overlay, so the\n' +
+      '     remaining columns must be pinned explicitly \u2014 otherwise the center\n' +
+      '     column auto-places into column 1 (width 0) and the conversation\n' +
+      '     disappears. This is the one line that makes or breaks the collapse. */\n' +
+      '  html.dsh-ux-collapse [class*="_centerCol"] {\n' +
+      '    grid-column: 2 !important;\n' +
+      '  }\n' +
+      '  html.dsh-ux-collapse [class*="_rightbarCol"] {\n' +
+      '    grid-column: 3 !important;\n' +
+      '  }\n' +
       '  html.dsh-ux-collapse [class*="_sidebarCol"] {\n' +
       '    position: absolute !important;\n' +
       '    z-index: 60 !important;\n' +
