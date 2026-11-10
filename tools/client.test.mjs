@@ -10,6 +10,7 @@
  * Run: node client.test.mjs
  */
 import { readFileSync } from 'node:fs';
+import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -307,10 +308,11 @@ function load(options = {}) {
     },
   };
 
-  const keys = Object.keys(sandbox);
-  // eslint-disable-next-line no-new-func -- deliberate sandbox evaluation of the bundle.
-  const run = new Function(...keys, source);
-  run(...keys.map((key) => sandbox[key]));
+  // The bundle runs inside a vm context whose globals are the stub sandbox:
+  // same isolation as building a function from strings, but a plain
+  // interpreter call instead of dynamic code execution.
+  const context = vm.createContext(sandbox);
+  vm.runInContext(source, context, { filename: 'client.js' });
 
   const plugin = registration.factory();
   // cordis runs an effect callback and disposes whatever function it returns;

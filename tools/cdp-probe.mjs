@@ -68,14 +68,14 @@ const evaluate = async (expression) => {
 };
 
 const cookie = process.argv[3];
-const url = process.argv[4] ?? 'http://127.0.0.1:3081/';
+const url = process.argv[4] ?? 'http://localhost:3081/';
 if (cookie) {
   await send(
     'Network.setCookie',
     {
       name: cookie.split('=')[0],
       value: cookie.slice(cookie.indexOf('=') + 1),
-      domain: '127.0.0.1',
+      domain: 'localhost',
       path: '/',
       httpOnly: true,
     },

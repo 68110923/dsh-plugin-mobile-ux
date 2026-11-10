@@ -146,7 +146,7 @@ const openSidebar = () =>
     return 'clicked';
   })()`);
 
-await send('Page.navigate', { url: `http://127.0.0.1:3081/?token=${token}` }, session);
+await send('Page.navigate', { url: `http://localhost:3081/?token=${token}` }, session);
 await new Promise((r) => setTimeout(r, 7000));
 
 await setViewport(844);
@@ -173,7 +173,7 @@ await new Promise((r) => setTimeout(r, 900));
 console.log('   ', await summary());
 
 console.log('6. opt-out check: reload with ?dshViewport=0');
-await send('Page.navigate', { url: `http://127.0.0.1:3081/?token=${token}&dshViewport=0` }, session);
+await send('Page.navigate', { url: `http://localhost:3081/?token=${token}&dshViewport=0` }, session);
 await new Promise((r) => setTimeout(r, 7000));
 await setViewport(560);
 console.log('   lock applied =', await LOCKED(), '(must be false)');
