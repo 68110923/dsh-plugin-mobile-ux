@@ -9,6 +9,8 @@
  *
  * Usage: node cdp-integration.mjs <wsUrl> <token>
  */
+import { WEB_ORIGIN } from './cdp-env.mjs';
+
 const wsUrl = process.argv[2];
 const token = process.argv[3];
 const ws = new WebSocket(wsUrl);
@@ -112,7 +114,7 @@ const summary = () =>
       docScrollable: document.documentElement.scrollHeight > document.documentElement.clientHeight,
       // The pack injects plain <style> elements with no marker attribute, so it is
       // identified by the comment its §1 stylesheet starts with. (This used to look
-      // for `style[data-plugin="dsh-web-mobile-fix"]`, an attribute no version of
+      // for 'style[data-plugin="dsh-web-mobile-fix"]', an attribute no version of
       // this pack ever set — the check was permanently false.)
       layoutStyles: [...document.querySelectorAll('style')]
         .some((s) => s.textContent.includes('mobile UI fixes')),
@@ -146,7 +148,7 @@ const openSidebar = () =>
     return 'clicked';
   })()`);
 
-await send('Page.navigate', { url: `http://localhost:3081/?token=${token}` }, session);
+await send('Page.navigate', { url: `${WEB_ORIGIN}/?token=${token}` }, session);
 await new Promise((r) => setTimeout(r, 7000));
 
 await setViewport(844);
@@ -173,7 +175,7 @@ await new Promise((r) => setTimeout(r, 900));
 console.log('   ', await summary());
 
 console.log('6. opt-out check: reload with ?dshViewport=0');
-await send('Page.navigate', { url: `http://localhost:3081/?token=${token}&dshViewport=0` }, session);
+await send('Page.navigate', { url: `${WEB_ORIGIN}/?token=${token}&dshViewport=0` }, session);
 await new Promise((r) => setTimeout(r, 7000));
 await setViewport(560);
 console.log('   lock applied =', await LOCKED(), '(must be false)');

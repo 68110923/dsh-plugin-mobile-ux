@@ -9,6 +9,8 @@
  *
  * Usage: node cdp-keyboard-sim.mjs <wsUrl> <cookie> [url]
  */
+import { WEB_ORIGIN, cookieDomain } from './cdp-env.mjs';
+
 const wsUrl = process.argv[2];
 const cookie = process.argv[3];
 const ws = new WebSocket(wsUrl);
@@ -69,7 +71,7 @@ if (cookie) {
     {
       name: cookie.split('=')[0],
       value: cookie.slice(cookie.indexOf('=') + 1),
-      domain: 'localhost',
+      domain: cookieDomain(url),
       path: '/',
       httpOnly: true,
     },
@@ -128,7 +130,7 @@ const snapshot = async (label) => {
   console.log(`--- ${label}\n  ${value}`);
 };
 
-const url = process.argv[4] ?? 'http://localhost:3081/?dshViewport=1';
+const url = process.argv[4] ?? `${WEB_ORIGIN}/?dshViewport=1`;
 await send('Page.navigate', { url }, session);
 await new Promise((resolve) => setTimeout(resolve, 6000));
 

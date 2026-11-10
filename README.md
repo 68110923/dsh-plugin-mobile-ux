@@ -98,6 +98,15 @@ node --check client.js         # 语法
 
 `tools/` 里另有几个用 CDP 直连无头 Chromium 的探针脚本（不改仓库、不装依赖，Node 22 自带 WebSocket）：测量真实 DOM 几何、模拟"可视区被裁"的键盘、验证滚动锁定没有破坏浮层定位。这些脚本是这个插件的来路：上面每一条结论都是用它们量出来的，而不是猜的。
 
+**这些脚本的默认目标地址不写死**（`tools/cdp-env.mjs` 一处定义）：
+
+```bash
+DSH_WEB_HOST=localhost:4000 node tools/cdp-probe.mjs <wsUrl> <cookie>
+DSH_WEB_URL=http://127.0.0.1:8080/ node tools/cdp-verify.mjs <wsUrl> <target>
+```
+
+优先级是**命令行参数 > 环境变量 > 默认值**（默认 `http://localhost:3081`，也就是 `dsh web` 的默认端口）。cookie 的 `domain` 从实际 URL 推导，所以换端口、换 host 都不用改脚本。
+
 其中两个是给**真浏览器验证**用的，也各自写清了**它们证不了什么**：
 
 | 脚本 | 用途 | 证不了的 |

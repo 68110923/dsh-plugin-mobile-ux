@@ -4,6 +4,8 @@
  *
  * Usage: node cdp-probe.mjs <wsUrl>
  */
+import { WEB_ORIGIN, cookieDomain } from './cdp-env.mjs';
+
 const wsUrl = process.argv[2];
 const ws = new WebSocket(wsUrl);
 let nextId = 1;
@@ -68,14 +70,14 @@ const evaluate = async (expression) => {
 };
 
 const cookie = process.argv[3];
-const url = process.argv[4] ?? 'http://localhost:3081/';
+const url = process.argv[4] ?? `${WEB_ORIGIN}/`;
 if (cookie) {
   await send(
     'Network.setCookie',
     {
       name: cookie.split('=')[0],
       value: cookie.slice(cookie.indexOf('=') + 1),
-      domain: 'localhost',
+      domain: cookieDomain(url),
       path: '/',
       httpOnly: true,
     },
