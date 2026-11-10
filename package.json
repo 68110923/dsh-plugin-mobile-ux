@@ -1,6 +1,6 @@
 {
   "name": "dsh-mobile-ux",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "description": "Mobile UX pack for the DSH Web shell: narrow-screen layout fixes, iOS keyboard/viewport handling, and single-tap session switching.",

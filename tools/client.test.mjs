@@ -152,6 +152,19 @@ function load(options = {}) {
       children: [],
       styleSheets: [],
       attributes: {},
+      // §6 puts a class on <html>; the stub models the tiny slice we use.
+      classList: {
+        _names: new Set(),
+        add(name) {
+          this._names.add(name);
+        },
+        remove(name) {
+          this._names.delete(name);
+        },
+        contains(name) {
+          return this._names.has(name);
+        },
+      },
     };
     Object.setPrototypeOf(element, Element.prototype);
     return element;
@@ -902,6 +915,40 @@ console.log('dsh-mobile-ux: client logic');
   for (const timer of env.timers.slice()) timer.fn();
   check('reopen: the panel reaches its tail again', rowHits > firstOpen, true);
   env.dispose();
+}
+
+// 12. §6 collapse: the class is the switch, and dispose must take it away.
+{
+  const env = load({ search: '' });
+  check(
+    'collapse: <html> carries the class by default',
+    env.documentElement.classList.contains('dsh-ux-collapse'),
+    true,
+  );
+  env.dispose();
+  check(
+    'collapse: dispose removes the class',
+    env.documentElement.classList.contains('dsh-ux-collapse'),
+    false,
+  );
+}
+
+{
+  const env = load({ search: '?dshMobileUx=nocollapse' });
+  check(
+    'nocollapse: no class on <html>',
+    env.documentElement.classList.contains('dsh-ux-collapse'),
+    false,
+  );
+}
+
+{
+  const env = load({ search: '?dshMobileUx=nolayout' });
+  check(
+    'nolayout: no collapse either',
+    env.documentElement.classList.contains('dsh-ux-collapse'),
+    false,
+  );
 }
 
 console.log(`\n${passed} passed, ${failures.length} failed`);
