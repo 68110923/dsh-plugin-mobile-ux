@@ -50,7 +50,7 @@ ws.addEventListener('open', async () => {
       await send('Page.navigate', { url: `file://${dir}/${page}` });
       await sleep(800);
       // The site stores the choice; set it and re-render.
-      await evaluate(`localStorage.setItem('dsh-mobile-ux:lang', ${JSON.stringify(lang)})`);
+      await evaluate(`localStorage.setItem('dsh-plugin-mobile-ux:lang', ${JSON.stringify(lang)})`);
       await send('Page.reload');
       await sleep(900);
       const dump = await evaluate(`(() => {

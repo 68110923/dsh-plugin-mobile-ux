@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title data-i18n="index.title">dsh-mobile-ux — DSH Web 手机端体验优化插件</title>
+    <title data-i18n="index.title">dsh-plugin-mobile-ux — DSH Web 手机端体验优化插件</title>
     <meta name="description" data-i18n-content="index.description" content="DeepSeek Harness Web 壳层的手机端体验优化插件：窄屏布局修复、iOS 键盘与输入框跟随、侧边栏单击切换会话、轨迹面板打开即到最新。纯客户端，桌面零回归，每一节都能单独关掉。" />
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./assets/site.css" />
@@ -13,9 +13,9 @@
 
     <header class="top">
       <div class="wrap">
-        <a class="brand" href="./" title="dsh-mobile-ux">
+        <a class="brand" href="./" title="dsh-plugin-mobile-ux">
           <img src="./assets/icon.svg" alt="" aria-hidden="true" />
-          <span class="name">dsh-mobile-ux</span>
+          <span class="name">dsh-plugin-mobile-ux</span>
         </a>
         <span class="navslot">
           <nav class="pages" aria-label="Pages / 页面">
@@ -74,7 +74,7 @@
           <li data-i18n="index.index.tuned-against-a-real-iphone-safari-5">iPhone + Safari 实测打磨</li>
           <li>MIT</li>
         </ul>
-        <pre class="shell"><code>dsh plugin --profile web add github:68110923/dsh-mobile-ux</code></pre>
+        <pre class="shell"><code>dsh plugin --profile web add github:68110923/dsh-plugin-mobile-ux</code></pre>
         <pre class="shell"><code><span class="c" data-i18n="index.index.a-plugin-change-needs-a-restart-or-6"># 改完插件必须重启，否则浏览器永远拿到旧代码（immutable 缓存）</span>
 systemctl restart dsh-web</code></pre>
       </div>
@@ -183,7 +183,7 @@ systemctl restart dsh-web</code></pre>
         <ol class="steps">
           <li>
             <span data-i18n="index.install.install-into-the-profile-3">装进 profile：</span>
-            <pre class="shell"><code>dsh plugin --profile web add github:68110923/dsh-mobile-ux</code></pre>
+            <pre class="shell"><code>dsh plugin --profile web add github:68110923/dsh-plugin-mobile-ux</code></pre>
           </li>
           <li>
             <span data-i18n="index.install.restart-the-service-4">重启服务：</span>
@@ -303,13 +303,13 @@ systemctl restart dsh-web</code></pre>
 
     <footer>
       <div class="wrap row">
-        <a href="https://github.com/68110923/dsh-mobile-ux" data-i18n="nav.repo">GitHub 仓库</a>
+        <a href="https://github.com/68110923/dsh-plugin-mobile-ux" data-i18n="nav.repo">GitHub 仓库</a>
         <span class="sep">·</span>
         <a href="./access.html" data-i18n="nav.access">接入指南</a>
         <span class="sep">·</span>
         <a href="./install.html" data-i18n="nav.install">安装指南</a>
         <span class="sep">·</span>
-        <a href="https://github.com/68110923/dsh-mobile-ux/blob/main/LICENSE">MIT License</a>
+        <a href="https://github.com/68110923/dsh-plugin-mobile-ux/blob/main/LICENSE">MIT License</a>
         <span class="sep">·</span>
         <span data-i18n="index.footer.note">为 DeepSeek Harness 的 Web profile 编写</span>
       </div>

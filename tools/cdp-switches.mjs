@@ -94,7 +94,7 @@ ws.addEventListener('open', async () => {
         lock: styles.some((css) => css.includes('overscroll-behavior: none')),
         layout: styles.some((css) => css.includes('mobile UI fixes')),
         meta: document.querySelector('meta[name="viewport"]')?.content ?? '(none)',
-        hud: Boolean(document.querySelector('[data-dsh-mobile-ux-hud]')),
+        hud: Boolean(document.querySelector('[data-dsh-plugin-mobile-ux-hud]')),
         fontSize: editor ? getComputedStyle(editor).fontSize : '(no editor)',
         api: typeof window.__dshMobileUx?.metrics,
         override: JSON.stringify(window.__dshMobileUxOptions ?? null),

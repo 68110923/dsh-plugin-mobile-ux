@@ -1,5 +1,5 @@
 /**
- * dsh-mobile-ux — client half.
+ * dsh-plugin-mobile-ux — client half.
  *
  * A mobile-first UX pack for the DeepSeek Harness Web shell. Five sections, each
  * independently switchable, each readable on its own:
@@ -49,7 +49,7 @@
  */
 
 window.__ModuleLoader__.load({
-  id: 'dsh-mobile-ux',
+  id: 'dsh-plugin-mobile-ux',
   factory() {
 
     /**
@@ -593,7 +593,7 @@ window.__ModuleLoader__.load({
      */
     function createHud() {
       const element = document.createElement('div');
-      element.setAttribute('data-dsh-mobile-ux-hud', '');
+      element.setAttribute('data-dsh-plugin-mobile-ux-hud', '');
       element.style.cssText = [
         'position:fixed',
         'left:0',
@@ -1138,7 +1138,7 @@ window.__ModuleLoader__.load({
           ` zoom=${switches.zoom ? 1 : 0}`;
         hud.update(
           [
-            'dsh-mobile-ux',
+            'dsh-plugin-mobile-ux',
             `vvH=${Math.round(metrics.visualHeight)} ref=${Math.round(keyboard.referenceHeight)}` +
               ` lvh=${metrics.layoutHeight}`,
             `root=${metrics.rootHeight} wrote=${pinnedShellHeight ?? '-'}`,
@@ -1498,7 +1498,7 @@ window.__ModuleLoader__.load({
         // disposer. Dropping it (as an earlier version did) leaves every listener
         // and injected style behind when the plugin is disabled or reloaded, and
         // the leftovers then fight the next generation of the plugin.
-        return context.effect(() => install(context), 'dsh-mobile-ux');
+        return context.effect(() => install(context), 'dsh-plugin-mobile-ux');
       },
     };
   },

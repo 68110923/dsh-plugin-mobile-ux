@@ -15,7 +15,7 @@ const outDir = process.argv[3] ?? '/tmp/dsh-site-shots';
 // Either a directory (file:// URLs) or an http origin; the HTTP form is the one
 // that behaves like the deployed site, and the query string defeats the cache —
 // a stale stylesheet once made a working rule look dead for several rounds.
-const pagesDir = process.argv[4] ?? '/root/dsh-mobile-ux/docs';
+const pagesDir = process.argv[4] ?? '/root/dsh-plugin-mobile-ux/docs';
 const isHttp = pagesDir.startsWith('http');
 const pageUrl = (page) =>
   isHttp
@@ -76,7 +76,7 @@ ws.addEventListener('open', async () => {
         for (const lang of LANGS) {
           await send('Page.navigate', { url: pageUrl(page) }).catch(() => {});
           await sleep(600);
-          await evaluate(`localStorage.setItem('dsh-mobile-ux:lang', ${JSON.stringify(lang)})`);
+          await evaluate(`localStorage.setItem('dsh-plugin-mobile-ux:lang', ${JSON.stringify(lang)})`);
           await send('Page.reload');
           await sleep(800);
           const shot = await send('Page.captureScreenshot', { format: 'png' });

@@ -1,12 +1,12 @@
-# dsh-mobile-ux
+# dsh-plugin-mobile-ux
 
 **DSH Web 壳层的手机端体验优化插件。** 把窄屏布局修复、iOS 键盘/输入框跟随、侧边栏单击切换会话、轨迹面板打开即到最新、页面缩放钉住五件事合成一个纯客户端插件：不改壳层源码、桌面端零影响、每一节都能单独关掉。
 
 > 为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的 Web profile 编写，在 iPhone + Safari（iOS 17）上实测打磨。
 >
-> **在线介绍页：<https://68110923.github.io/dsh-mobile-ux/>**（`docs/` 目录，GitHub Pages，中英双语）
-> **安装指南：<https://68110923.github.io/dsh-mobile-ux/install.html>**
-> **接入指南：<https://68110923.github.io/dsh-mobile-ux/access.html>** —— 从电脑或手机用上服务器上的 dsh web：SSH 隧道 / nginx + IP / nginx + 域名 + TLS
+> **在线介绍页：<https://68110923.github.io/dsh-plugin-mobile-ux/>**（`docs/` 目录，GitHub Pages，中英双语）
+> **安装指南：<https://68110923.github.io/dsh-plugin-mobile-ux/install.html>**
+> **接入指南：<https://68110923.github.io/dsh-plugin-mobile-ux/access.html>** —— 从电脑或手机用上服务器上的 dsh web：SSH 隧道 / nginx + IP / nginx + 域名 + TLS
 >
 > 三个页面由 `tools/site/build.py` 从同一份页眉/页脚/菜单 + `locales/*.json` 词条生成；改站点看 [`tools/site/README.md`](./tools/site/README.md)。
 
@@ -64,7 +64,7 @@
 ## 安装
 
 ```bash
-dsh plugin --profile web add github:68110923/dsh-mobile-ux
+dsh plugin --profile web add github:68110923/dsh-plugin-mobile-ux
 ```
 
 然后重启并按 Ctrl/Cmd + Shift + R 硬刷新：
@@ -140,8 +140,8 @@ node --check client.js         # 语法
 
 ## 安装来源说明
 
-- **从 GitHub 安装（推荐）**：`dsh plugin --profile web add github:68110923/dsh-mobile-ux`
-- **本地 / 离线**：`dsh plugin --profile web add /path/to/dsh-mobile-ux` —— 按目录安装是 `link:` 语义，改完源码重启即生效（上一条的 npm 方案未发布，见文末说明）
+- **从 GitHub 安装（推荐）**：`dsh plugin --profile web add github:68110923/dsh-plugin-mobile-ux`
+- **本地 / 离线**：`dsh plugin --profile web add /path/to/dsh-plugin-mobile-ux` —— 按目录安装是 `link:` 语义，改完源码重启即生效（上一条的 npm 方案未发布，见文末说明）
 - **npm**：尚未发布。发布者的 npm 账号启用的是安全密钥型 2FA（Auth & Writes），而构建服务器没有 TOTP 验证器，npm 要求发布必须提供 OTP 或可绕过 2FA 的 token，三种写法实测均被 registry 拒绝。使用者不受影响——GitHub 安装拿到的是同一个包，已逐字节比对。将来要发 npm，走 GitHub Actions + Trusted Publishing（OIDC）即可完全绕开 token 与 OTP。
 
 ## License

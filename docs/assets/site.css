@@ -1,4 +1,4 @@
-/* dsh-mobile-ux — shared site styles
+/* dsh-plugin-mobile-ux — shared site styles
  *
  * One stylesheet for every page on the site. Layout is mobile-first: the base
  * rules are the phone layout, and the `@media (min-width: …)` blocks add the

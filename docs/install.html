@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title data-i18n="install.title">安装指南 — 把 dsh-mobile-ux 装到你的 DSH 上</title>
-    <meta name="description" data-i18n-content="install.description" content="dsh-mobile-ux 的安装指南：从 GitHub、npm 或本地目录安装到 DSH Web profile，含三层验证、按需开关、卸载升级与安装期排错。" />
+    <title data-i18n="install.title">安装指南 — 把 dsh-plugin-mobile-ux 装到你的 DSH 上</title>
+    <meta name="description" data-i18n-content="install.description" content="dsh-plugin-mobile-ux 的安装指南：从 GitHub、npm 或本地目录安装到 DSH Web profile，含三层验证、按需开关、卸载升级与安装期排错。" />
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./assets/site.css" />
   </head>
@@ -13,9 +13,9 @@
 
     <header class="top">
       <div class="wrap">
-        <a class="brand" href="./" title="dsh-mobile-ux">
+        <a class="brand" href="./" title="dsh-plugin-mobile-ux">
           <img src="./assets/icon.svg" alt="" aria-hidden="true" />
-          <span class="name">dsh-mobile-ux</span>
+          <span class="name">dsh-plugin-mobile-ux</span>
         </a>
         <span class="navslot">
           <nav class="pages" aria-label="Pages / 页面">
@@ -71,7 +71,7 @@
           <li data-i18n="install.install.client-side-only-no-build-6">纯客户端 · 无构建</li>
           <li>MIT</li>
         </ul>
-        <pre class="shell"><code><span class="tok-cmd">dsh</span> plugin --profile web add github:68110923/dsh-mobile-ux</code></pre>
+        <pre class="shell"><code><span class="tok-cmd">dsh</span> plugin --profile web add github:68110923/dsh-plugin-mobile-ux</code></pre>
       </div>
       <section id="req">
         <h2 data-i18n="install.req.before-you-start-1">开始之前</h2>
@@ -109,8 +109,8 @@
             <span class="badge">github:</span>
           </header>
           <div class="body">
-            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"><span data-i18n="install.github.your-machine-4">你的电脑</span></span><span class="chip">pnpm</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web add github:68110923/dsh-mobile-ux</code></pre></div>
-            <ul class="plain"><li><span data-i18n="install.github.pnpm-fetches-the-repo-and-register-5">pnpm 会拉取仓库并把它登记进 profile 的 dependencies 与 dsh.profile.bundles</span></li><li><span data-i18n="install.github.to-pin-a-revision-use-github-68110-6">需要固定版本时可以写 github:68110923/dsh-mobile-ux#v2.0.0（打标签后）</span></li><li><span data-i18n="install.github.to-follow-new-commits-on-main-run-7">想跟随 main 上的新提交：装完执行 dsh plugin --profile web update dsh-mobile-ux</span></li></ul>
+            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"><span data-i18n="install.github.your-machine-4">你的电脑</span></span><span class="chip">pnpm</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web add github:68110923/dsh-plugin-mobile-ux</code></pre></div>
+            <ul class="plain"><li><span data-i18n="install.github.pnpm-fetches-the-repo-and-register-5">pnpm 会拉取仓库并把它登记进 profile 的 dependencies 与 dsh.profile.bundles</span></li><li><span data-i18n="install.github.to-pin-a-revision-use-github-68110-6">需要固定版本时可以写 github:68110923/dsh-plugin-mobile-ux#v2.0.0（打标签后）</span></li><li><span data-i18n="install.github.to-follow-new-commits-on-main-run-7">想跟随 main 上的新提交：装完执行 dsh plugin --profile web update dsh-plugin-mobile-ux</span></li></ul>
           </div>
         </div>
         <div class="plan">
@@ -146,7 +146,7 @@
             <span class="badge">npm</span>
           </header>
           <div class="body">
-            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web add @yourscope/dsh-mobile-ux
+            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web add @yourscope/dsh-plugin-mobile-ux
 <span class="tok-cmd">systemctl</span> restart dsh-web</code></pre></div>
             <ul class="plain"><li><span data-i18n="install.npm.the-name-will-carry-the-publisher-4">包名会带发布者的作用域，装起来比走 GitHub 快，也不依赖 GitHub 可达</span></li><li><span data-i18n="install.npm.on-a-registry-mirror-a-fresh-versi-5">registry 是镜像时新版本可能还没同步，加 --registry=https://registry.npmjs.org/</span></li></ul>
           </div>
@@ -173,9 +173,9 @@
             <span class="badge" data-i18n="install.local.pick-one-4">任选一种</span>
           </header>
           <div class="body">
-            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"><span data-i18n="install.github.server-10">服务器</span></span><span class="chip">clone</span></div><pre><code><span class="tok-cmd">git</span> clone https://github.com/68110923/dsh-mobile-ux /opt/dsh-mobile-ux
+            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"><span data-i18n="install.github.server-10">服务器</span></span><span class="chip">clone</span></div><pre><code><span class="tok-cmd">git</span> clone https://github.com/68110923/dsh-plugin-mobile-ux /opt/dsh-plugin-mobile-ux
 <span class="c"># 或从本地机器上传：</span>
-<span class="tok-cmd">scp</span> -r ./dsh-mobile-ux root@SERVER_IP:/opt/</code></pre></div>
+<span class="tok-cmd">scp</span> -r ./dsh-plugin-mobile-ux root@SERVER_IP:/opt/</code></pre></div>
           </div>
         </div>
         <div class="plan">
@@ -184,9 +184,9 @@
             <span class="badge">link:</span>
           </header>
           <div class="body">
-            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web add /opt/dsh-mobile-ux
+            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web add /opt/dsh-plugin-mobile-ux
 <span class="tok-cmd">systemctl</span> restart dsh-web</code></pre></div>
-            <ul class="plain"><li><span data-i18n="install.local.a-directory-install-is-a-symlink-e-6">按目录安装是 link（软链）语义：改完源码只要重启 dsh-web 即生效，不用重装</span></li><li><span data-i18n="install.local.for-a-fully-offline-box-npm-pack-e-7">离线包也可以先在有网的机器执行 npm pack 生成 tgz，再 dsh plugin --profile web add ./dsh-mobile-ux-2.0.0.tgz</span></li></ul>
+            <ul class="plain"><li><span data-i18n="install.local.a-directory-install-is-a-symlink-e-6">按目录安装是 link（软链）语义：改完源码只要重启 dsh-web 即生效，不用重装</span></li><li><span data-i18n="install.local.for-a-fully-offline-box-npm-pack-e-7">离线包也可以先在有网的机器执行 npm pack 生成 tgz，再 dsh plugin --profile web add ./dsh-plugin-mobile-ux-2.0.0.tgz</span></li></ul>
           </div>
         </div>
       </section>
@@ -203,7 +203,7 @@
           <li>
             <b data-i18n="install.verify.layer-2-the-server-can-resolve-it-4">第二层：服务能解析它（这一步最容易被忽略）</b>
             <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"><span data-i18n="install.github.server-10">服务器</span></span><span class="chip">verify</span></div><pre><code><span class="c"># 组装配置里应出现插件的行；出现 skipping profile bundle 就是没解析到</span>
-<span class="tok-cmd">dsh</span> --profile web --dump-config | grep -A2 dsh-mobile-ux
+<span class="tok-cmd">dsh</span> --profile web --dump-config | grep -A2 dsh-plugin-mobile-ux
 <span class="tok-cmd">journalctl</span> -u dsh-web --since "-5 min" | grep -c "skipping profile bundle"   <span class="c"># 期望 0</span></code></pre></div>
           </li>
           <li>
@@ -262,13 +262,13 @@ window.__dshMobileUxOptions = { keyboard: false }</code></pre></div>
           <div class="card">
             <h3 data-i18n="install.uninstall.uninstall-3">卸载</h3>
             <p class="scope" data-i18n="install.uninstall.one-command-plus-a-restart-4">一条命令 + 重启</p>
-            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web remove dsh-mobile-ux
+            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web remove dsh-plugin-mobile-ux
 <span class="tok-cmd">systemctl</span> restart dsh-web</code></pre></div>
           </div>
           <div class="card">
             <h3 data-i18n="install.uninstall.upgrade-5">升级</h3>
             <p class="scope" data-i18n="install.uninstall.use-update-add-does-not-upgrade-6">必须用 update，add 不会更新</p>
-            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web update dsh-mobile-ux
+            <div class="term"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="file"></span><span class="chip">terminal</span></div><pre><code><span class="tok-cmd">dsh</span> plugin --profile web update dsh-plugin-mobile-ux
 <span class="tok-cmd">systemctl</span> restart dsh-web</code></pre></div>
           </div>
         </div>
@@ -304,7 +304,7 @@ window.__dshMobileUxOptions = { keyboard: false }</code></pre></div>
                        data-i18n="install.trouble.almost-always-a-missing-dsh-web-re-8">九成是没重启 dsh-web，或者页面没硬刷新（immutable 缓存）。</td>
               </tr>
               <tr>
-                <td><code>404 Not Found - PUT .../dsh-mobile-ux</code></td>
+                <td><code>404 Not Found - PUT .../dsh-plugin-mobile-ux</code></td>
                 <td
                        data-i18n="install.trouble.the-package-is-not-on-npm-yet-see-9">包尚未发布到 npm（见方案 B），改用方案 A 从 GitHub 安装。</td>
               </tr>
@@ -330,13 +330,13 @@ window.__dshMobileUxOptions = { keyboard: false }</code></pre></div>
 
     <footer>
       <div class="wrap row">
-        <a href="https://github.com/68110923/dsh-mobile-ux" data-i18n="nav.repo">GitHub 仓库</a>
+        <a href="https://github.com/68110923/dsh-plugin-mobile-ux" data-i18n="nav.repo">GitHub 仓库</a>
         <span class="sep">·</span>
         <a href="./" data-i18n="nav.home">首页</a>
         <span class="sep">·</span>
         <a href="./access.html" data-i18n="nav.access">接入指南</a>
         <span class="sep">·</span>
-        <a href="https://github.com/68110923/dsh-mobile-ux/blob/main/LICENSE">MIT License</a>
+        <a href="https://github.com/68110923/dsh-plugin-mobile-ux/blob/main/LICENSE">MIT License</a>
         <span class="sep">·</span>
         <span data-i18n="install.footer.note">命令里的 profile 名请替换成你自己的</span>
       </div>

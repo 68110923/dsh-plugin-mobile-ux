@@ -1,6 +1,6 @@
 {
-  "name": "dsh-mobile-ux",
-  "version": "2.1.0",
+  "name": "dsh-plugin-mobile-ux",
+  "version": "2.2.0",
   "private": true,
   "type": "module",
   "description": "Mobile UX pack for the DSH Web shell: narrow-screen layout fixes, iOS keyboard/viewport handling, and single-tap session switching.",
@@ -35,9 +35,9 @@
     }
   },
   "dshMobileUx": {
-    "name": "dsh-mobile-ux",
-    "repository": "https://github.com/68110923/dsh-mobile-ux",
-    "pages": "https://68110923.github.io/dsh-mobile-ux/",
+    "name": "dsh-plugin-mobile-ux",
+    "repository": "https://github.com/68110923/dsh-plugin-mobile-ux",
+    "pages": "https://68110923.github.io/dsh-plugin-mobile-ux/",
     "credits": [
       "https://github.com/AcidGr/dsh-web-mobile-fix",
       "https://github.com/TecFancy/dsh-mobile"
@@ -55,11 +55,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/68110923/dsh-mobile-ux.git"
+    "url": "git+https://github.com/68110923/dsh-plugin-mobile-ux.git"
   },
-  "homepage": "https://68110923.github.io/dsh-mobile-ux/",
+  "homepage": "https://68110923.github.io/dsh-plugin-mobile-ux/",
   "bugs": {
-    "url": "https://github.com/68110923/dsh-mobile-ux/issues"
+    "url": "https://github.com/68110923/dsh-plugin-mobile-ux/issues"
   },
   "engines": {
     "node": ">=22"

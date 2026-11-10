@@ -1,5 +1,5 @@
 /**
- * dsh-mobile-ux — shared site script.
+ * dsh-plugin-mobile-ux — shared site script.
  *
  * Responsibilities, deliberately few:
  *
@@ -18,7 +18,7 @@
  * anchor and both page menus intact.
  */
 (function () {
-  var LANGUAGE_KEY = 'dsh-mobile-ux:lang';
+  var LANGUAGE_KEY = 'dsh-plugin-mobile-ux:lang';
   var COPY = window.__dshMobileUxCopy || {};
   var LANGUAGES = Object.keys(COPY);
   var DEFAULT_LANGUAGE = 'zh';

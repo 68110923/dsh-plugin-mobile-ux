@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds every page of the dsh-mobile-ux site from one set of fragments.
+"""Builds every page of the dsh-plugin-mobile-ux site from one set of fragments.
 
 Three things used to be duplicated per page and are now defined once:
 
@@ -143,9 +143,9 @@ def header(page, copy):
 
     <header class="top">
       <div class="wrap">
-        <a class="brand" href="./" title="dsh-mobile-ux">
+        <a class="brand" href="./" title="dsh-plugin-mobile-ux">
           <img src="./assets/icon.svg" alt="" aria-hidden="true" />
-          <span class="name">dsh-mobile-ux</span>
+          <span class="name">dsh-plugin-mobile-ux</span>
         </a>
         <span class="navslot">
           <nav class="pages" aria-label="{copy('nav.pages_label')}">
@@ -198,7 +198,7 @@ def footer(page, copy):
     scroll away.
     """
     links = [
-        '<a href="https://github.com/68110923/dsh-mobile-ux"'
+        '<a href="https://github.com/68110923/dsh-plugin-mobile-ux"'
         f' {copy.attrs("nav.repo")}>{copy("nav.repo")}</a>'
     ]
     for other in PAGES:
@@ -208,7 +208,7 @@ def footer(page, copy):
             f'<a href="{other["href"]}" {copy.attrs(other["nav"])}>{copy(other["nav"])}</a>'
         )
     links.append(
-        '<a href="https://github.com/68110923/dsh-mobile-ux/blob/main/LICENSE">MIT License</a>'
+        '<a href="https://github.com/68110923/dsh-plugin-mobile-ux/blob/main/LICENSE">MIT License</a>'
     )
     note = f'{page["slug"]}.footer.note'
     links.append(f'<span {copy.attrs(note)}>{copy(note)}</span>')

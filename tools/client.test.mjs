@@ -1,5 +1,5 @@
 /**
- * Deterministic test for the dsh-mobile-ux client half.
+ * Deterministic test for the dsh-plugin-mobile-ux client half.
  *
  * The client bundle is a script that registers a factory; this harness loads it
  * with a fake `document` and a programmable `visualViewport`, then drives the
@@ -383,7 +383,7 @@ function load(options = {}) {
   };
 }
 
-console.log('dsh-mobile-ux: client logic');
+console.log('dsh-plugin-mobile-ux: client logic');
 
 // 1. Keyboard closed: the shell keeps the layout height, nothing else changes.
 {
@@ -851,8 +851,8 @@ console.log('dsh-mobile-ux: client logic');
 
   const withHud = load({ search: '?dshMobileUx=tap,hud' });
   check('keep-list: hud does not turn the keyboard section off',
-    withHud.document.querySelector('[data-dsh-mobile-ux-hud]') !== null ||
-      withHud.body.children.some((child) => child.hasAttribute('data-dsh-mobile-ux-hud')), true);
+    withHud.document.querySelector('[data-dsh-plugin-mobile-ux-hud]') !== null ||
+      withHud.body.children.some((child) => child.hasAttribute('data-dsh-plugin-mobile-ux-hud')), true);
   withHud.dispose();
 }
 

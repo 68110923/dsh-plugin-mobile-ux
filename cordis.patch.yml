@@ -1,4 +1,4 @@
-# dsh-mobile-ux bundle patch: inserts the client plugin row.
+# dsh-plugin-mobile-ux bundle patch: inserts the client plugin row.
 #
 # All three identifiers are the same name on purpose:
 #
@@ -16,5 +16,5 @@
 # old id. The only result of keeping it was a plugin list that disagreed with the
 # project it belongs to.
 - insert:
-    - id: dsh-mobile-ux
-      name: 'dsh-mobile-ux'
+    - id: dsh-plugin-mobile-ux
+      name: 'dsh-plugin-mobile-ux'
