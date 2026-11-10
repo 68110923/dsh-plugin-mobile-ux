@@ -326,60 +326,6 @@ window.__ModuleLoader__.load({
       '    z-index: 50 !important;\n' +
       '    pointer-events: none !important;\n' +
       '  }\n' +
-      '  /* 4. Three-column collapse (adapted from qingshanyuluo/dsh-mobile-ux, MIT):\n' +
-      '        the leading column goes to 0 and the sidebar floats OVER the\n' +
-      '        conversation instead of reserving a rail. Collapsed, it shrinks to a\n' +
-      '        36px pill in the top-left corner and the header moves out of its way.\n' +
-      '        Scoped to html.dsh-ux-collapse so `nocollapse` restores rule 3 exactly. */\n' +
-      '  html.dsh-ux-collapse [class*="_frame"] {\n' +
-      '    grid-template-columns: 0 minmax(0, 1fr) 0 !important;\n' +
-      '  }\n' +
-      '  html.dsh-ux-collapse [class*="_frame"] [class*="_handle"] {\n' +
-      '    display: none !important;\n' +
-      '  }\n' +
-      '  /* The sidebar leaves the grid flow when it becomes an overlay, so the\n' +
-      '     remaining columns must be pinned explicitly \u2014 otherwise the center\n' +
-      '     column auto-places into column 1 (width 0) and the conversation\n' +
-      '     disappears. This is the one line that makes or breaks the collapse. */\n' +
-      '  html.dsh-ux-collapse [class*="_centerCol"] {\n' +
-      '    grid-column: 2 !important;\n' +
-      '  }\n' +
-      '  html.dsh-ux-collapse [class*="_rightbarCol"] {\n' +
-      '    grid-column: 3 !important;\n' +
-      '  }\n' +
-      '  html.dsh-ux-collapse [class*="_sidebarCol"] {\n' +
-      '    position: absolute !important;\n' +
-      '    z-index: 60 !important;\n' +
-      '    inset-block: 0 !important;\n' +
-      '    inset-inline-start: 0 !important;\n' +
-      '    width: min(280px, calc(100vw - 16px)) !important;\n' +
-      '    overflow: visible !important;\n' +
-      '    box-shadow: 12px 0 32px rgba(15, 23, 42, 0.18) !important;\n' +
-      '  }\n' +
-      '  html.dsh-ux-collapse [class*="_frame"][data-sidebar-collapsed] [class*="_sidebarCol"] {\n' +
-      '    inset-block: 8px auto !important;\n' +
-      '    inset-inline-start: 8px !important;\n' +
-      '    width: 36px !important;\n' +
-      '    height: 36px !important;\n' +
-      '    border-radius: 12px !important;\n' +
-      '    overflow: hidden !important;\n' +
-      '    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22) !important;\n' +
-      '  }\n' +
-      '  html.dsh-ux-collapse [class*="_frame"][data-sidebar-collapsed] [class*="_sidebarCol"] > * {\n' +
-      '    height: 36px !important;\n' +
-      '    min-height: 36px !important;\n' +
-      '    margin: 0 !important;\n' +
-      '    padding: 0 !important;\n' +
-      '    justify-content: center !important;\n' +
-      '    gap: 0 !important;\n' +
-      '  }\n' +
-      '  html.dsh-ux-collapse [class*="_frame"][data-sidebar-collapsed] header {\n' +
-      '    padding-inline-start: 56px !important;\n' +
-      '  }\n' +
-      '  html.dsh-ux-collapse [class*="_frame"] header {\n' +
-      '    flex-wrap: nowrap !important;\n' +
-      '    gap: 8px !important;\n' +
-      '  }\n' +
       '}\n'
 
     // --------------------------------------------------------------- helpers --
@@ -464,10 +410,6 @@ window.__ModuleLoader__.load({
         // §5, pinning the page scale, is a modifier rather than a section: it
         // cannot be asked for by name in a keep-list, only switched off.
         zoom: pickModifier('zoom'),
-        // §6, collapsing the leading column to zero and floating the sidebar
-        // over the conversation. A modifier too: on by default, `nocollapse`
-        // restores the 56px rail.
-        collapse: pickModifier('collapse'),
       };
     }
 
@@ -986,12 +928,7 @@ window.__ModuleLoader__.load({
       const documentElement = doc.documentElement;
       const body = doc.body;
 
-      if (switches.layout) {
-        addStyles(LAYOUT_STYLES);
-        // §6 is a CSS-only island: the class is the switch, and removing it
-        // restores the rail without touching any other rule.
-        if (switches.collapse) documentElement.classList.add('dsh-ux-collapse');
-      }
+      if (switches.layout) addStyles(LAYOUT_STYLES);
       const lockElement = doc.createElement('style');
       lockElement.textContent = LOCK_STYLES;
       // The scroll lock is appended and removed with the keyboard; a <style>
@@ -1476,7 +1413,6 @@ window.__ModuleLoader__.load({
         // `#root` stays fixed until a full page reload.
         locked = false;
         setScrollLock(false);
-        documentElement.classList.remove('dsh-ux-collapse');
         restoreViewportMeta();
         for (const record of previous) {
           if (record.value === '') {

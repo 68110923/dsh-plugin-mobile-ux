@@ -35,14 +35,6 @@
 - 侧边栏**浮在对话之上**（栅格始终保持 56px 轨道，抽屉溢出覆盖），并给对话加一层遮罩
 - 适配自 [`AcidGr/dsh-web-mobile-fix`](https://github.com/AcidGr/dsh-web-mobile-fix)（MIT），并参考了 [`TecFancy/dsh-mobile`](https://github.com/TecFancy/dsh-mobile)（MIT）的同类做法
 
-### §6 三列塌缩（可选，默认开）
-
-- 侧栏那一列**收到 0**，对话区占满整宽；侧栏改为浮层（绝对定位）压在对话之上
-- 收起时缩成左上角 **36px 圆角胶囊**，标题栏自动让出 56px，不再被它压住
-- 与 §1 的区别：§1 保留 56px 轨道（侧栏的按钮始终占位、原生交互不受影响），§6 追求"像原生 App"的全宽对话
-- 纯 CSS 实现：只往 `<html>` 挂一个 `dsh-ux-collapse` 类，关掉开关即完全回到 §1，不留残留
-- 移植自 [`qingshanyuluo/dsh-mobile-ux`](https://github.com/qingshanyuluo/dsh-mobile-ux) 的三列塌缩思路（MIT）
-
 ### §2 iOS 键盘与可视视口
 
 - **不改字号，改限制缩放**：本插件不写任何 `font-size`。iOS 会在聚焦小于 16px 的输入框时把整页放大，早先版本靠「把字号提到 17px」来对抗——那既改了你没要求的外观，又和 DSH 自己的字号设置（12–17px）打架，已整段删除。现在改为在 viewport meta 上钉 `maximum-scale=1`：不动任何文字大小，页面也不再被放大（实测可视高度从 345 恢复到 500）。不想要可用 `freezoom` 关掉
@@ -87,7 +79,6 @@ systemctl restart dsh-web     # 或你的 dsh web 进程
 | `keepdrawer` | 单击切换后**不**自动收起侧边栏（默认会收起） |
 | `freezoom` / `nozoom` | 允许 / 禁止页面被放大（默认钉住缩放） |
 | `nolock` | 键盘打开时不锁文档滚动 |
-| `nocollapse` | 关掉 §6 三列塌缩，回到 §1 的 56px 轨道 |
 | `hud` | 左上角显示实时读数 |
 
 例：`?dshMobileUx=nokeyboard`、`?dshMobileUx=nolayout,hud`。也可以在加载前用 `window.__dshMobileUxOptions = { keyboard: false }` 覆盖（**注意是 `…Options`**：`window.__dshMobileUx` 是插件自己的读数 API，写在另一个属性上，两者互不覆盖）。
@@ -120,7 +111,6 @@ node --check client.js         # 语法
 |---|---|
 | [`AcidGr/dsh-web-mobile-fix`](https://github.com/AcidGr/dsh-web-mobile-fix) | §1 的原始实现（设置面板、浮层侧边栏、遮罩、点击外部收起），MIT |
 | [`TecFancy/dsh-mobile`](https://github.com/TecFancy/dsh-mobile) | 手机档适配的另一种做法（断点层 + 状态桥 + `data-slot` 样式表），参考了它的取舍；MIT |
-| [`qingshanyuluo/dsh-mobile-ux`](https://github.com/qingshanyuluo/dsh-mobile-ux) | §6 三列塌缩（列收到 0 + 侧栏浮层 + 36px 胶囊）；MIT |
 | [`langyo/dsh-mobile-upgrade`](https://github.com/langyo/dsh-mobile-upgrade) | 同类问题的另一种整理方式，安装/排错思路有参考 |
 | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | 被适配的壳层本体；插件只锚在它的 `data-slot` 与类名前缀契约上 |
 
